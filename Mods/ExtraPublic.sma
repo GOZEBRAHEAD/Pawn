@@ -2,24 +2,24 @@
 
 - CHANGELOG:
 
-v#0.1 = Creaci�n del mod.
-v#0.2 = Mucha mejora del c�digo, agregados los efectos al disparar/llegar a 5 kills.
+v#0.1 = Creación del mod.
+v#0.2 = Mucha mejora del código, agregados los efectos al disparar/llegar a 5 kills.
 v#0.3 = Agregados mejores efectos al llegar a 5 kills.
-v#0.4 = Se optimiz� todo el mod para que consuma lo menos posible.
+v#0.4 = Se optimizó todo el mod para que consuma lo menos posible.
 v#0.5 = Se agregaron las clases (5 en total).
 v#0.6 = Se agregaron las granadas (2 en total) y las trampas.
-v#0.7 = Se cambi� el tipo de detecci�n cuando matan y son matados los jugadores.
-v#0.8 = Se optimiz� un poco el mod.
+v#0.7 = Se cambió el tipo de detección cuando matan y son matados los jugadores.
+v#0.8 = Se optimizó un poco el mod.
 v#0.9 = Se agregaron los TTs y los CTs, un hud configurable para c/u.
 v#1.0 = Ahora las clases deben desbloquearse (sino no se pueden elegir) | NOTA: HACERLE QUE SE DESBLOQUEEN POR FRAGS O ALGO.
 v#1.1 = Ahora las clases se desbloquean solo gastando "ATP2-Points" hechos.
 v#1.2 = Se removieron los g_kills (estaban al pedo)...
-v#1.3 = Se agreg� un HUD personal con los "ATP2-POINTS" para no tener que estar viendo el men� de info, a dem�s se agreg� un men� de config. de hud.
-v#1.4 = Se reemplaz� la granada congelante por una explosiva (+ sprite y sonido) la cual te saca la mitad de la vida.
-v#1.5 = Se removi� el HUD personal ya que se usa el men� de INFO. Se agreg� tambi�n el da�o hecho y recibido (total) de cada ronda.
-v#1.6 = Se agreg� que haya poca luz en el mapa y un contador de puntajes (TTs y CTs).
-v#1.7 = Se agreg� que cuando un team llegue a 100 puntos, se cambie de mapa.
-v#1.8 = Se agreg� un men� de vote para elegir el siguiente MAPA.
+v#1.3 = Se agregó un HUD personal con los "ATP2-POINTS" para no tener que estar viendo el menú de info, a demás se agregó un menú de config. de hud.
+v#1.4 = Se reemplazó la granada congelante por una explosiva (+ sprite y sonido) la cual te saca la mitad de la vida.
+v#1.5 = Se removió el HUD personal ya que se usa el menú de INFO. Se agregó también el daño hecho y recibido (total) de cada ronda.
+v#1.6 = Se agregó que haya poca luz en el mapa y un contador de puntajes (TTs y CTs).
+v#1.7 = Se agregó que cuando un team llegue a 100 puntos, se cambie de mapa.
+v#1.8 = Se agregó un menú de vote para elegir el siguiente MAPA.
 
 	// ===== ===== ===== ===== ===== //
 // =============================================== //
@@ -27,41 +27,41 @@ v#1.8 = Se agreg� un men� de vote para elegir el siguiente MAPA.
 
 - LETRAS ESPECIALES:
 
-� = á
-� = é
-� = �*
-� = ó
-� = ú
+á = Ã¡
+é = Ã©
+í = Ã*
+ó = Ã³
+ú = Ãº
 
-� = Á
-� = É
-� = Í
-� = Ó
-� = Ú
+Á = Ã
+É = Ã‰
+Í = Ã
+Ó = Ã“
+Ú = Ãš
 
-� = ñ
-� = ç
+ñ = Ã±
+ç = Ã§
 
-� = Ñ
-� = Ç
+Ñ = Ã‘
+Ç = Ã‡
 
-� = ©
-� = ®
-� = ™
-� = Ø
-� = ª
+© = Â©
+® = Â®
+™ = â„¢
+Ø = Ã˜
+ª = Âª
 
-� = ä
-� = ë
-� = ï
-� = ö
-� = ü
+ä = Ã¤
+ë = Ã«
+ï = Ã¯
+ö = Ã¶
+ü = Ã¼
 
-� = Ä
-� = Ë
-� = Ï 
-� = Ö 
-� = Ü
+Ä = Ã„
+Ë = Ã‹
+Ï = Ã 
+Ö = Ã– 
+Ü = Ãœ
 
 */
 
@@ -72,7 +72,7 @@ v#1.8 = Se agreg� un men� de vote para elegir el siguiente MAPA.
 #include <cstrike>
 #include <fun>
 // === NECESARIO === //
-static const PLUGIN[] = "MOD NUEVO";
+static const PLUGIN[] = "ExtraPublic";
 static const VERSION[] = "#1.8";
 static const AUTHOR[] = "ZEBRAHEAD";
 static const COMUNIDAD[] = "ATRAPA2";
@@ -114,11 +114,11 @@ new const LASERBEAM[] = "sprites/laserbeam.spr";
 new const BOMBA_EXPLOSIVA[] = "sprites/ATP2-MOD_NUEVO/granada_explosiva.spr";
 new const ALL_MENUS[][] =
 {
-	//"\r[ATRAPA2] \wELEGÍ UN EQUIPO�",
-	"\r[ATRAPA2] \wMENÚ \yPRINCIPAL",
-	"\r[ATRAPA2] \wMENÚ DE \yESTADÍSTICAS",
-	"\r[ATRAPA2] \wMENÚ DE \yCLASES^n\r- \wRECUERDA DESBLOQUEAR LAS CLASES \r-",
-	"\r[ATRAPA2] \wMENÚ DE \yDESBLOQUEO DE CLASES^n\r- \wRECUERDA QUE CADA CLASE CUESTA \y125 ATP2-POINTS \r-",
+	//"\r[ATRAPA2] \wELEGÃ UN EQUIPO",
+	"\r[ATRAPA2] \wMENÃš \yPRINCIPAL",
+	"\r[ATRAPA2] \wMENÃš DE \yESTADÃSTICAS",
+	"\r[ATRAPA2] \wMENÃš DE \yCLASES^n\r- \wRECUERDA DESBLOQUEAR LAS CLASES \r-",
+	"\r[ATRAPA2] \wMENÃš DE \yDESBLOQUEO DE CLASES^n\r- \wRECUERDA QUE CADA CLASE CUESTA \y125 ATP2-POINTS \r-",
 	"\r[ATRAPA2] \wVOTA UN \yMAPA"
 }
 //new const ALL_MAPAS[][] = { "de_dust2", "de_inferno", "de_nuke", "de_train", "de_tuscan", "de_mirage" }
@@ -1179,7 +1179,7 @@ public show_menu_game(id)
 {
 	static menu; menu = menu_create(ALL_MENUS[0], "menu_game")
 
-	menu_additem(menu, "\wVER \yESTADÍSTICAS", "1")
+	menu_additem(menu, "\wVER \yESTADÃSTICAS", "1")
 	menu_additem(menu, "\wELEGIR \yCLASES", "2")
 	menu_additem(menu, "\wDESBLOQUEAR \yCLASES", "3")
 	menu_additem(menu, (g_activado[id]) ? "\wDESACTIVAR \yHUD" : "\wACTIVAR \yHUD", "4")
@@ -1216,7 +1216,7 @@ public show_menu_estadisticas(id)
 	static menu, texto[200]; menu = menu_create(ALL_MENUS[1], "menu_estadisticas")
 	
 	formatex(texto, charsmax(texto), 
-	"\wTU INFORMACIÓN:^n\r- \wATP2-POINTS: \y[%d]^n\r- \wDAÑO HECHO: \y[%d]^n\r- \wDAÑO RECIBIDO: \y[%d]", 
+	"\wTU INFORMACIÃ“N:^n\r- \wATP2-POINTS: \y[%d]^n\r- \wDAÃ‘O HECHO: \y[%d]^n\r- \wDAÃ‘O RECIBIDO: \y[%d]", 
 	g_puntos[id], g_damage[id][0], g_damage[id][1])
 	
 	menu_additem(menu, texto, "1")
