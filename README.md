@@ -2,4 +2,8 @@
 
 ##### Here are some mods I developed from 2013 to 2015. Obviously: There are things that could be better written.
 
-If you want to know more about pawn --> [AlliedModders](https://forums.alliedmods.net/)
+--------------------------------
+
+###If you want to know more about pawn --> [AlliedModders](https://forums.alliedmods.net/)
+
+Btw: I speak spanish, so the variables/functions/others are spanish words.
